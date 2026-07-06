@@ -1,0 +1,72 @@
+@use "sass:map";
+
+.page {
+  position: relative;
+  padding-bottom: 100px;
+
+  @include breakpoint(large) {
+    min-height: 200vh;
+  }
+
+  > .pin-spacer {
+    margin-top: 0 !important;
+  }
+
+  > div:not(.home-hero, .hero, .pin-spacer) + div {
+    margin-top: 100px;
+
+    @include breakpoint(medium) {
+      margin-top: 120px;
+    }
+  }
+
+  > div.core-heading + div {
+    margin-top: 50px ;
+  }
+
+  .grid {
+    > h2,
+    > h3,
+    > p,
+    > ul,
+    > ol {
+      grid-column: span 12 / span 12;
+
+      @include breakpoint(medium) {
+        grid-column: span 10 / span 10;
+        grid-column-start: 2;
+      }
+
+      @include breakpoint(large) {
+        grid-column: span 8 / span 8;
+        grid-column-start: 3;
+      }
+    }
+
+    &--force-full {
+      > h2,
+      > h3,
+      > p,
+      > ul,
+      > ol {
+        grid-column: span 12 / span 12 !important;
+      }
+
+      + .card-grid-section {
+        margin-top: 60px;
+      }
+    }
+
+    > .video {
+      grid-column: span 12 / span 12;
+    }
+
+    > p {
+      text-align: center;
+    }
+  }
+
+  > .top-btn {
+    justify-self: center;
+  }
+}

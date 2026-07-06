@@ -1,0 +1,21 @@
+@import 'global/reset';
+@import 'global/fonts';
+@import 'global/variables';
+@import 'mixins/mixins-foundation';
+@import 'mixins/mixins-functions';
+@import 'mixins/mixins-typography';
+@import 'mixins/mixins-buttons';
+@import 'utilities/buttons';
+@import 'utilities/typography';
+@import 'layout/grid';
+@import 'layout/page';
+@import 'layout/form';
+@import 'layout/miscellaneous';
+
+@import '../components/Header/header';
+@import '../components/Footer/footer';
+@import '../components/HeroType/hero-type.scss';
+@import '../components/SpecialHeroType/special-hero-type';
+@import '../components/StickyHeadingSection/sticky-heading-section';
+
+@import url('https://use.typekit.net/gba4nux.css');

@@ -1,0 +1,201 @@
+@use "sass:map";
+
+body {
+  color: map.get($layout-colors, color);
+  background-color: map.get($layout-colors, background);
+  transition: 0.2s background-color $ease-default;
+
+  &.light-mode {
+    color: map.get($layout-dm-colors, color);
+    background-color: map.get($layout-dm-colors, background);
+  }
+}
+
+#app {
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.object-cover {
+  object-fit: cover;
+  height: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.br-image {
+  &--link {
+    &:hover {
+      img {
+        cursor: pointer;
+        outline: 1px solid map.get($layout-colors, color);
+
+        .light-mode & {
+          outline: 1px solid map.get($layout-dm-colors, color);
+        }
+      }
+    }
+  }
+
+  img {
+    border-radius: 6px;
+  }
+}
+
+.dot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // width: 34px;
+  // height: 34px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  font-family: $font-primary;
+  // font-size: rem-calc(24px);
+  font-size: rem-calc(20px);
+  font-weight: 900;
+  font-style: normal;
+  color: map.get($layout-colors, color);
+  background-color: transparent;
+  border: 3px solid;
+  border-radius: 50%;
+  appearance: none;
+  transition: $transition-default;
+  cursor: pointer;
+
+  @include breakpoint(medium) {
+    width: 34px;
+    height: 34px;
+    font-size: rem-calc(24px);
+  }
+
+  .light-mode & {
+    color: map.get($layout-dm-colors, color);
+  }
+
+  &:hover,
+  .accordion__button:hover & {
+    color: map.get($layout-colors, hover);
+
+    svg {
+      fill: map.get($layout-colors, hover);
+    }
+  }
+}
+
+.arrow-controls {
+  display: flex;
+  gap: 20px;
+}
+
+.arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  appearance: none;
+
+  &:hover {
+    svg {
+      fill: map.get($layout-colors, hover);
+
+      .light-mode & {
+        fill: map.get($layout-dm-colors, hover);
+      }
+    }
+  }
+
+  &.next {
+    transform: rotate(180deg);
+  }
+
+  svg {
+    // width: 31px;
+    width: 24px;
+    fill: map.get($layout-colors, color);
+    transition: $transition-default;
+
+    @include breakpoint(medium) {
+      width: 31px;
+    }
+
+    .light-mode & {
+      fill: map.get($layout-dm-colors, color);
+    }
+  }
+}
+
+.divider-rule {
+  padding-top: 50px;
+  border-top: 2px solid map.get($layout-colors, color);
+
+  .light-mode & {
+    border-top: 2px solid map.get($layout-dm-colors, color);
+  }
+
+  @include breakpoint(medium) {
+    grid-column: span 12 / span 12 !important;
+  }
+}
+
+.sticker-button {
+  position: relative;
+  color: map.get($layout-colors, color);
+
+  &--active {
+    color: rgba(82, 82, 82, 1) !important;
+
+    img {
+      opacity: 1 !important;
+    }
+  }
+
+  .light-mode & {
+    color: map.get($layout-dm-colors, color);
+  }
+
+  img {
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 200px;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &:hover {
+    color: map.get($layout-colors, hover);
+    cursor: pointer;
+
+    .light-mode & {
+      color: map.get($layout-dm-colors, hover);
+    }
+
+    img {
+      opacity: 1;
+    }
+  }
+}

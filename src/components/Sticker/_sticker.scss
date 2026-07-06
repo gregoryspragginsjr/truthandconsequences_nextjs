@@ -1,0 +1,140 @@
+@use "sass:map";
+
+.sticker {
+  position: relative;
+  z-index: 10;
+
+  img {  
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  &__y-float {
+    animation-name: yfloating;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  &__hover-layer {
+    transition: 0.2s ease-out;
+  }
+
+  &:nth-child(1) {
+
+    .sticker__hover-layer:hover {
+      transform: translate(-15%, -5%);
+    }
+
+    img {
+      animation-duration: 5s;
+      animation-name: floating;
+    }
+  }
+
+  &:nth-child(2) {
+
+    .sticker__y-float {
+      animation-name: yfloating2;
+    }
+
+    .sticker__hover-layer:hover {
+      transform: translate(15%, -5%);
+    }
+    
+    img {
+      animation-name: floating2;
+    }
+  }
+
+  &:nth-child(3) {
+
+    .sticker__hover-layer:hover {
+      transform: translate(0, -20%);
+    }
+    
+    img {
+      animation-duration: 7s;
+      animation-name: floating3;
+    }
+  }
+
+  &:nth-child(4) {
+
+    .sticker__y-float {
+      animation-name: yfloating2;
+    }
+  
+    .sticker__hover-layer:hover {
+      transform: translate(-20%, 20%);
+    }
+
+    img {
+      animation-name: floating4;
+    }
+  }
+
+  &:nth-child(5) {
+    .sticker__hover-layer:hover {
+      transform: translate(20%, 20%);
+    }
+
+    img {
+      animation-duration: 5s;
+      animation-name: floating5;
+    }
+  }
+}
+
+@keyframes floating {
+  from { transform: translate(0,  0); }
+  20%  { transform: translate(0, 3px); }
+  40%  { transform: translate(2px, -3px); }
+  60%  { transform: translate(-3px, 0); }
+  80%  { transform: translate(2px, 2px); }
+}
+
+@keyframes floating2 {
+  from { transform: translate(0,  0); }
+  20%  { transform: translate(-4px, 2px); }
+  40%  { transform: translate(0, 4px); }
+  60%  { transform: translate(1px, -3px); }
+  80%  { transform: translate(-4px, 0); }
+}
+
+@keyframes floating3 {
+  from { transform: translate(0,  0); }
+  20%  { transform: translate(-2px, 0); }
+  40%  { transform: translate(-1px, 2px); }
+  60%  { transform: translate(0, 3px); }
+  80%  { transform: translate(1px, -3px); }
+}
+
+@keyframes floating4 {
+  from { transform: translate(0,  0); }
+  20%  { transform: translate(2px, -4px); }
+  40%  { transform: translate(-5px, 0); }
+  60%  { transform: translate(-2px, 3px); }
+  80%  { transform: translate(0, 5px); }
+}
+
+@keyframes floating5 {
+  from { transform: translate(0,  0); }
+  20%  { transform: translate(0, 5px); }
+  40%  { transform: translate(2px, -4px); }
+  60%  { transform: translate(-5px, 0); }
+  80%  { transform: translate(-2px, 3px); }
+}
+
+@keyframes yfloating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 3px); }
+    to   { transform: translate(0, -0px); }    
+}
+
+@keyframes yfloating2 {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, -3px); }
+    to   { transform: translate(0, 0px); }    
+}

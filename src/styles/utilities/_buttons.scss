@@ -1,0 +1,64 @@
+@use "sass:map";
+
+// Buttons
+/* ------------------------------------- */
+
+.link-btn {
+  @include link-btn(map.get($layout-colors, color), map.get($layout-colors, hover));
+
+  .light-mode & {
+    @include link-btn(map.get($layout-dm-colors, color), map.get($layout-dm-colors, hover));
+  }
+}
+
+.pill-btn {
+  @include pill-btn(map.get($layout-colors, color), transparent, map.get($layout-colors, hover), '', '');
+
+  &--pilless {
+    padding: 0;
+    border: 0;
+  }
+
+  .light-mode & {
+    @include pill-btn(map.get($layout-dm-colors, color), transparent, map.get($layout-dm-colors, hover), '', '');
+  }
+}
+
+.sm-pill-btn {
+  @include sm-pill-btn(map.get($layout-colors, color), transparent, map.get($layout-colors, color), '', rgba(82, 82, 82, 1));
+
+  .light-mode & {
+    @include sm-pill-btn(map.get($layout-dm-colors, color), transparent, map.get($layout-dm-colors, color), '', rgba(82, 82, 82, 1));
+  }
+
+  &--active {
+    color: map.get($layout-colors, background) !important;
+    background-color: map.get($layout-colors, color);
+    border-color: map.get($layout-colors, color);
+
+    .light-mode & {
+      color: map.get($layout-dm-colors, background) !important;
+      background-color: map.get($layout-dm-colors, color);
+      border-color: map.get($layout-dm-colors, color);
+    }
+  }
+
+  &:hover {
+    border-color: map.get($layout-colors, color);
+
+    .light-mode & {
+      border-color: map.get($layout-dm-colors, color);
+    }
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  gap: 10px;
+
+  &--centered {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,54 @@
+@use "sass:map";
+
+// Typography
+/* ------------------------------------- */
+
+// Headings
+.heading-style-1 {
+  @include heading-style-1();
+}
+
+.heading-style-2 {
+  @include heading-style-2();
+}
+
+.heading-style-3 {
+  @include heading-style-3();
+}
+
+.heading-style-4 {
+  @include heading-style-4();
+}
+
+.heading-style-5 {
+  @include heading-style-5();
+}
+
+.heading-style-6 {
+  @include heading-style-6();
+}
+
+// Subheadings
+.subheading-style-1 {
+  @include subheading-style-1();
+}
+
+// Paragraphs
+.paragraph-style-1 {
+  @include paragraph-style-1();
+
+  &--heading {
+    font-size: rem-calc(50px);
+  }
+}
+
+.paragraph-style-2 {
+  @include paragraph-style-2(); //change to 3
+}
+
+.paragraph-style-3 {
+  @include paragraph-style-3(); //change to 3
+}
+
+// Spacing
+.heading-style-6 + .subheading-style-1 { margin-top: 6px; }

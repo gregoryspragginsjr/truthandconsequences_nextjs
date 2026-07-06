@@ -1,0 +1,36 @@
+@import '../mixins/mixins-foundation';
+@import "../../../node_modules/@glidejs/glide/src/assets/sass/glide.core.scss";
+
+// Colors
+$black: #0b0b0b;
+$white: #ffffff;
+
+// Fonts
+$font-primary: cofo-sans-variable, serif;
+$font-secondary: 'Panama', serif;
+
+// Grid
+$grid-max-width: rem-calc(1800px);
+$grid-column-gutter: (
+  small: 20px,
+  large: 60px,
+);
+
+// Easing
+$ease-default: ease-in-out;
+
+// Transitions
+$transition-default: 0s $ease-default;
+
+// Layout
+$layout-colors: (
+  color: $white,
+  background: $black,
+  hover: rgba(163, 163, 163, 1),
+);
+
+$layout-dm-colors: (
+  color: $black,
+  background: $white,
+  hover: rgba(163, 163, 163, 1),
+);

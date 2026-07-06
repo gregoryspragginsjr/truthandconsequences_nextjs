@@ -1,0 +1,84 @@
+@use "sass:map";
+
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: none;
+  background-color: transparent;
+  width: 28px;
+  height: 20px;
+  margin: 0;
+  background-color: transparent;
+  border: 2px solid rgba(82, 82, 82, 1);
+  border-radius: 100px;
+  transition: $transition-default;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  .input-group:hover &,
+  &:hover {
+    background-color: rgba(82, 82, 82, 1);
+  }
+
+  &:checked {
+    background-color: map.get($layout-colors, color) !important;
+    border: 2px solid map.get($layout-colors, color) !important;
+
+    .light-mode & {
+      background-color: map.get($layout-dm-colors, color) !important;
+      border: 2px solid map.get($layout-dm-colors, color) !important;
+    }
+  }
+}
+
+.input-group {
+  &:hover {
+    label {
+      color: rgba(163, 163, 163, 1);
+      cursor: pointer;
+    }
+  }
+}
+
+.input {
+  width: 100%;
+  max-width: 480px;
+  padding: 14px 20px;
+  font-family: $font-primary;
+  font-size: rem-calc(20px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  color: map.get($layout-colors, color);
+  background: transparent;
+  border: 2px solid map.get($layout-colors, hover);
+  border-radius: 50px;
+  appearance: none;
+
+  .light-mode & {
+    color: map.get($layout-dm-colors, color);
+  }
+
+  &::placeholder {
+    color: map.get($layout-colors, hover);
+
+    .light-mode & {
+      color: map.get($layout-dm-colors, color);
+    }
+  }
+
+  &:hover {
+    border-color: map.get($layout-colors, color);
+
+    &::placeholder {
+      color: map.get($layout-colors, color);
+    }
+
+    .light-mode & {
+      border-color: map.get($layout-dm-colors, color);
+
+      &::placeholder {
+        color: map.get($layout-dm-colors, color);
+      }
+    }
+  }
+}

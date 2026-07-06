@@ -1,0 +1,240 @@
+@use "sass:map";
+// @import '~/assets/styles/styles.scss';
+
+.footer {
+  position: relative;
+  &__faux-border,
+  &__primary,
+  &__secondary,
+  &__bottom {
+    grid-column: span 12 / span 12;
+  }
+
+  &__faux-border {
+    // padding-bottom: 70px;
+    padding-bottom: 50px;
+
+    @include breakpoint(medium) {
+      padding-bottom: 80px;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      border-top: 2px solid map.get($layout-colors, color);
+
+      .light-mode & {
+        border-top: 2px solid map.get($layout-dm-colors, color);
+      }
+    }
+  }
+
+  &__primary {
+    @include breakpoint(medium) {
+      grid-column: span 7 / span 7;
+    }
+
+    @include breakpoint(large) {
+      grid-column: span 8 / span 8;
+    }
+  }
+
+  &__primary + &__secondary {
+    // margin-top: 50px;
+    margin-top: 40px;
+
+    @include breakpoint(medium) {
+      margin-top: 0;
+    }
+  }
+
+  &__secondary {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 40px;
+
+    @include breakpoint(medium) {
+      grid-column: span 5 / span 5;
+      justify-content: flex-end;
+    }
+
+    @include breakpoint(large) {
+      grid-column: span 4 / span 4;
+      column-gap: 100px;
+    }
+  }
+
+  &__contact {
+    display: inline-block;
+    font-family: $font-primary;
+    // font-size: rem-calc(24px);
+    font-size: rem-calc(22px);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 115%;
+    text-decoration: none;
+    color: map.get($layout-colors, color);
+    transition: $transition-default;
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(24px);
+    }
+
+    .light-mode & {
+      color: map.get($layout-dm-colors, color);
+    }
+
+    @include breakpoint(large) {
+      font-size: rem-calc(35px);
+    }
+
+    &:hover {
+      color: map.get($layout-colors, hover);
+      text-decoration: underline;
+    }
+  }
+
+  &__mode-options {
+    display: flex;
+    margin-top: 50px;
+    gap: 20px;
+    
+    @include breakpoint(medium) {
+      gap: 14px;
+    }
+  }
+
+  &__mode-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+
+    label {
+      font-family: $font-primary;
+      // font-size: rem-calc(20px);
+      font-size: rem-calc(18px);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 100%;
+      color: map.get($layout-colors, color);
+
+      @include breakpoint(medium) {
+        font-size: rem-calc(20px);
+      }
+
+      .light-mode & {
+        color: map.get($layout-dm-colors, color);
+      }
+    }
+  }
+
+  &__heading {
+    font-family: $font-primary;
+    font-size: rem-calc(26px);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 100%;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(40px);
+    }
+  }
+
+  &__heading + &__menu {
+    margin-top: 24px;
+  }
+
+  &__subheading,
+  &__menu li a,
+  &__menu li .modal-btn {
+    font-family: $font-secondary;
+    font-size: rem-calc(18px);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 100%;
+    color: map.get($layout-colors, color);
+    text-decoration: underline;
+    text-decoration-thickness: 5%;
+    text-underline-offset: 4px;
+    transition: $transition-default;
+
+    @include breakpoint(large) {
+      font-size: rem-calc(22px);
+    }
+
+    .light-mode & {
+      color: map.get($layout-dm-colors, color);
+    }
+
+    &:hover {
+      color: map.get($layout-colors, hover);
+    }
+  }
+
+  &__subheading {
+    text-decoration: none;
+  }
+
+  &__menu {
+    li + li {
+      margin-top: 8px;
+    }
+  }
+
+  &__subheading + &__mode-option {
+    margin-left: 10px;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 100px;
+
+    @include breakpoint(medium) {
+      padding-top: 100px;
+      padding-bottom: 60px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    // width: 300px;
+    width: 240px;
+    fill: map.get($layout-colors, color);
+    transition: $transition-default;
+    transform: translateX(-50%);
+
+    .light-mode & {
+      fill: map.get($layout-dm-colors, color);
+    }
+
+    @include breakpoint(medium) {
+      bottom: 60px;
+      width: 300px;
+    }
+
+    &:hover {
+      fill: map.get($layout-colors, hover);
+    }
+  }
+
+  .header__item {
+    display: inline-block;
+  }
+
+  &__mailchimp-modal {
+    .modal__main {
+      pointer-events: none;
+    }
+  
+    .modal__button {
+      display: none;
+    }
+  }
+}

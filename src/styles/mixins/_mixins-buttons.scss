@@ -1,0 +1,184 @@
+@mixin btn($color, $background, $hover-color: '', $hover-background: '', $border: '') {
+  @include paragraph-style-3;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  font-size: rem-calc(20px);
+  color: $color;
+  font-weight: 700;
+  text-decoration: none;
+  background-color: $background;
+  border: 4px solid;
+  border-radius: 100px;
+
+  @include breakpoint(large) {
+    padding: 1.17vh 1.25vw;
+    font-size: 1.2vw; // 20px / 1440px
+    border: 0.278vw solid;
+  }
+
+  @if $border == '' {
+    border-color: $color;
+  }
+
+  @else {
+    border-color: $border;
+  }
+
+  &:hover {
+    @if $hover-color == '' {
+      color: $color;
+    }
+
+    @else {
+      color: $hover-color;
+    }
+
+    background-color: $hover-background;
+    border-color: $color;
+  }
+}
+
+@mixin link-btn($color, $hover-color: '') {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  font-family: $font-primary;
+  font-size: rem-calc(20px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: $color;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 0;
+  background-color: transparent;
+  transition: $transition-default;
+  cursor: pointer;
+
+  &:hover {
+    color: $hover-color;
+
+    svg {
+      fill: $hover-color;
+    }
+
+    &::after {
+      background-color: $hover-color;
+    }
+  }
+
+  svg {
+    fill: $color;
+    width: 14px;
+    transition: $transition-default;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: $color;
+    transition: $transition-default;
+  }
+}
+
+@mixin pill-btn($color, $background, $hover-color: '', $hover-background: '', $border: '') {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 11px;
+  font-family: $font-primary;
+  font-size: rem-calc(24px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  text-decoration: none;
+  color: $color;
+  background-color: $background;
+  border: 1px solid;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: $transition-default;
+
+  @if $border == '' {
+    // Do Nothing.
+  }
+
+  @else {
+    border-color: $border;
+  }
+
+  &:hover {
+    @if $hover-color == '' {
+      color: $color;
+    }
+
+    @else {
+      color: $hover-color;
+    }
+
+    @if $background == $border {
+      border-color: $hover-background;
+    }
+
+    background-color: $hover-background;
+  }
+
+  svg {
+    fill: $color;
+    width: 20px;
+    transition: $transition-default;
+  }
+}
+
+@mixin sm-pill-btn($color, $background, $hover-color: '', $hover-background: '', $border: '') {
+  padding: 19px 24px;
+  font-family: $font-primary;
+  font-size: rem-calc(18px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  text-decoration: none;
+  color: $color;
+  white-space: nowrap;
+  background-color: $background;
+  border: 2px solid;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: $transition-default;
+
+  @if $border == '' {
+    // Do Nothing.
+  }
+
+  @else {
+    border-color: $border;
+  }
+
+  &:hover {
+    @if $hover-color == '' {
+      color: $color;
+    }
+
+    @else {
+      color: $hover-color;
+    }
+
+    @if $background == $border {
+      border-color: $hover-background;
+    }
+
+    background-color: $hover-background;
+  }
+}
