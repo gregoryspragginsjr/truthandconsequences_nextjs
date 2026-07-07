@@ -40,8 +40,11 @@ export default function StickyHeadingSection({backdrop, heading, items, blockDat
 
   return (
     <div className="sticky-heading-section" ref={target}>
-      { slug == '' ? <SpecialHeroType /> : <div className="sticky-heading-section__backdrop" /> }
-      <div className="heading-style-1">{backdrop}</div>
+      { slug == null ? <SpecialHeroType /> :
+        <div className="sticky-heading-section__backdrop">
+          <div className="heading-style-1">{backdrop}</div>
+        </div>
+      }
       <div className="sticky-heading-section__inner grid">
         <div className="sticky-heading-section__main">
           <h2 className="sticky-heading-section__heading heading-style-4">{heading}</h2>
@@ -64,16 +67,18 @@ export default function StickyHeadingSection({backdrop, heading, items, blockDat
               </button>
               <div className="sticky-heading-section__context">
                 <p className="paragraph-style-3">{item.paragraph}</p>
-                <Link
-                  className="link-btn"
-                  href={item.button.url.replace(/^.*\/\/[^\/]+/, '').replace(/\/$/, '')}
-                >
-                  {item.button.title}
-                  <svg viewBox="0 0 246.4 197.1">
-                    <path d="M123.2 0C72.2 0 26.4 23.2 0 60.3v76.5c26.4 37 72.2 60.3 123.2 60.3s96.8-23.2 123.2-60.3V60.3C220 23.2 174.2 0 123.2 0m0 160.4c-46.2 0-87.8-25.2-103.9-61.8 16.1-36.7 57.8-61.8 103.9-61.8S211 62 227.1 98.6c-16.1 36.7-57.8 61.8-103.9 61.8" />
-                    <path d="M121.3 135.3c19.7 0 35.7-16.4 35.7-36.7s-16-36.7-35.7-36.7-35.7 16.4-35.7 36.7 16 36.7 35.7 36.7" />
-                  </svg>
-                </Link>
+                {item.button?.url && (
+                  <Link
+                    className="link-btn"
+                    href={item.button.url.replace(/^.*\/\/[^\/]+/, '').replace(/\/$/, '')}
+                  >
+                    {item.button.title}
+                    <svg viewBox="0 0 246.4 197.1">
+                      <path d="M123.2 0C72.2 0 26.4 23.2 0 60.3v76.5c26.4 37 72.2 60.3 123.2 60.3s96.8-23.2 123.2-60.3V60.3C220 23.2 174.2 0 123.2 0m0 160.4c-46.2 0-87.8-25.2-103.9-61.8 16.1-36.7 57.8-61.8 103.9-61.8S211 62 227.1 98.6c-16.1 36.7-57.8 61.8-103.9 61.8" />
+                      <path d="M121.3 135.3c19.7 0 35.7-16.4 35.7-36.7s-16-36.7-35.7-36.7-35.7 16.4-35.7 36.7 16 36.7 35.7 36.7" />
+                    </svg>
+                  </Link>
+                )}
               </div>
             </div>
           ))}

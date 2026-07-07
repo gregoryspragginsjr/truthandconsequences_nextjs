@@ -1,6 +1,3 @@
-import Image from "next/image";
-import styles from "../page.module.css";
-
 import ComponentRenderer from "@/components/ComponentRenderer";
 
 interface PageProps {
@@ -76,11 +73,11 @@ export default async function Page({ params }: PageProps) {
   return (
     <main>
       <div className="page page--default">
-        <h1 dangerouslySetInnerHTML={{ __html: `This is a Vue 3 / Nuxt to React / Next conversion test of: ${ title }` }} />
         {components.map((component, i) => (
           <ComponentRenderer key={i} {...component} moduleData={ component } />
         ))}
       </div>
+      <h1 dangerouslySetInnerHTML={{ __html: `This is a Vue 3 / Nuxt to React / Next conversion test of: ${ title }` }} />
     </main>
   );
 }
