@@ -16,9 +16,6 @@ export default function HeroType({ variant = 'default', heading, stickers = [], 
   const target = useRef<HTMLDivElement>(null);
   const preparedHeading = heading.replace(/(\bhttps?:\/\/\S+)|(\S+)/gi, "<span>$&</span>");
 
-  console.log('OVER HERE');
-  console.log(stickers);
-
   return (
     <div
       className={`hero-type hero-type--${variant} ${className}`}
