@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import Sticker from "@/components/Sticker/Sticker";
+import Image from 'next/image';
+import PictureLoader from '@/components/PictureLoader';
 
 export default function HeroType({ variant = 'default', heading, stickers, blockData, special = false, className}: { variant?: string, heading: string, stickers: number[] | object[], blockData?: unknown, special?: boolean, className?: string } ) {
   const target = useRef<HTMLDivElement>(null);
@@ -17,11 +19,10 @@ export default function HeroType({ variant = 'default', heading, stickers, block
               key={i}
               className="hero-type__sticker"
             >
-              TEST
-              {/* { special ?
-                <img {...sticker} /> :
-                <PictureLoader size="sticker" />
-              } */}
+              { special ?
+                <Image width={300} height={300} {...sticker} alt="" /> :
+                <PictureLoader id={ sticker as number } size="sticker" />
+              }
             </Sticker>
           ))}
           { variant == 'small' ?

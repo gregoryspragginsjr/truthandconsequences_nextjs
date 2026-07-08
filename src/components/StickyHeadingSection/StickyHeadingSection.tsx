@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import SpecialHeroType from '@/components/SpecialHeroType/SpecialHeroType';
+import PictureLoader from '../PictureLoader';
 
 interface BlockData {
   [key: `items_${number}_image`]: number;
@@ -61,9 +62,10 @@ export default function StickyHeadingSection({backdrop, heading, items, blockDat
                     <path d="m3.5 34.5-3.5-2V2l3.5-2L30 15.2v4zM4.7 6v22.4l19.5-11.2z" />
                   </svg>
                 }
-                {/* <PictureLoader
-                  :id="item.image"
-                /> */}
+                <PictureLoader
+                  id={item.image}
+                />
+                <p>{ item.image }</p>
               </button>
               <div className="sticky-heading-section__context">
                 <p className="paragraph-style-3">{item.paragraph}</p>
