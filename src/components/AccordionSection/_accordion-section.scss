@@ -1,0 +1,70 @@
+@use "sass:map";
+
+.accordion-section {
+  &__main {
+    grid-column: span 12 / span 12;
+
+    @include breakpoint(large) {
+      grid-column: span 8 / span 8;
+      grid-column-start: 3;
+    }
+  }
+
+  &__heading {
+    text-align: center;
+  }
+
+  &__heading + .accordion {
+    margin-top: 40px;
+  }
+
+  .dot {
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
+
+  .accordion__panel + .accordion__panel {
+    border-top: 2px solid map.get($layout-colors, hover);
+  }
+
+  .accordion__button {
+    justify-content: flex-start;
+    font-family: $font-primary;
+    // font-size: rem-calc(30px);
+    font-size: rem-calc(24px);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 100%;
+    letter-spacing: 1px;
+    padding: 20px 0;
+    gap: 20px;
+
+    @include breakpoint(medium) {
+      font-size: rem-calc(30px);
+    }
+  }
+
+  .accordion__plus {
+    margin-right: 0;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .accordion__tags {
+    display: none;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 30px;
+    pointer-events: none;
+
+    @include breakpoint(medium) {
+      display: flex;
+    }
+  }
+
+  .accordion__content {
+    > p {
+      @extend .paragraph-style-3;
+    }
+  }
+}

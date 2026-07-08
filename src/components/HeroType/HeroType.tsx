@@ -3,9 +3,21 @@ import Sticker from "@/components/Sticker/Sticker";
 import Image from 'next/image';
 import PictureLoader from '@/components/PictureLoader';
 
-export default function HeroType({ variant = 'default', heading, stickers, blockData, special = false, className}: { variant?: string, heading: string, stickers: number[] | object[], blockData?: unknown, special?: boolean, className?: string } ) {
+interface HeroTypeProps {
+  variant?: string;
+  heading: string;
+  stickers: number[] | object[] | string[];
+  blockData?: unknown;
+  special?: boolean;
+  className?: string;
+}
+
+export default function HeroType({ variant = 'default', heading, stickers = [], blockData, special = false, className}: HeroTypeProps ) {
   const target = useRef<HTMLDivElement>(null);
   const preparedHeading = heading.replace(/(\bhttps?:\/\/\S+)|(\S+)/gi, "<span>$&</span>");
+
+  console.log('OVER HERE');
+  console.log(stickers);
 
   return (
     <div
@@ -14,14 +26,17 @@ export default function HeroType({ variant = 'default', heading, stickers, block
     >
       <div className="hero-type__outer-wrap">
         <div className="hero-type__heading-wrap">
-          {stickers.map((sticker, i) => (
+          {Array.isArray(stickers) && stickers.map((sticker, i) => (
             <Sticker
               key={i}
               className="hero-type__sticker"
             >
               { special ?
                 <Image width={300} height={300} {...sticker} alt="" /> :
-                <PictureLoader id={ sticker as number } size="sticker" />
+                <PictureLoader
+                  id={ sticker as number }
+                  size="sticker"
+                />
               }
             </Sticker>
           ))}

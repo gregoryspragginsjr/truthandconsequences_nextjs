@@ -1,0 +1,125 @@
+@use "sass:map";
+
+.accordion {
+  &__header {
+    margin: 0;
+  }
+
+  &__arrow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: $transition-default;
+    fill: map.get($layout-colors, color);
+
+    .light-mode & {
+      fill: map.get($layout-dm-colors, color);
+    }
+
+    // // [aria-expanded='true'] & {
+
+    // // }
+
+    svg {
+      width: 20px;
+      transition: $transition-default;
+
+      @include breakpoint(medium) {
+        width: 1.875vw;
+      }
+
+      [aria-expanded='true'] & {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__button {
+    z-index: 10;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    appearance: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: map.get($layout-colors, color);
+    transition: $transition-default;
+
+    &:hover {
+      color: map.get($layout-colors, hover);
+
+      .light-mode & {
+        color: map.get($layout-dm-colors, hover);
+      }
+    }
+
+    .light-mode & {
+      color: map.get($layout-dm-colors, color);
+    }
+  }
+
+  &__plus {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 3px;
+      background-color: map.get($layout-colors, color);
+      transition: $transition-default;
+
+      .light-mode & {
+        background-color: map.get($layout-dm-colors, color);
+      }
+
+      .accordion__button:hover & {
+        background-color: map.get($layout-colors, hover);
+      }
+    }
+
+    &::after {
+      transform: rotate(90deg);
+
+      [aria-expanded='true'] & {
+        width: 0px;
+      }
+    }
+  }
+
+  &__window {
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: .2s ease-in-out;
+  }
+
+  &__content {
+    padding: 0 0 20px;
+
+    @include breakpoint(large) {
+      padding: 0 0 2.952vh;
+    }
+  }
+
+  p:nth-child(1) {
+    margin-top: 0;
+  }
+}

@@ -7,12 +7,16 @@ import type { ComponentType } from 'react';
 import StickyHeadingSection from '@/components/StickyHeadingSection/StickyHeadingSection';
 import CoreParagraph from './Core/CoreParagraph';
 import Collage from '@/components/Collage/Collage';
+import HeroType from '@/components/HeroType/HeroType';
+import AccordionSection from './AccordionSection/AccordionSection';
 
 // Component map — equivalent to Vue's dynamic component registry
 const componentMap: Record<string, ComponentType<any>> = {
   'sticky-heading-section': StickyHeadingSection,
   'core-paragraph': CoreParagraph,
   'collage': Collage,
+  'hero-type': HeroType,
+  'accordion-section': AccordionSection,
 };
 
 interface ModuleData {
