@@ -6,11 +6,13 @@ import type { ComponentType } from 'react';
 // Import your components explicitly — no auto-registration in Next.js
 import StickyHeadingSection from '@/components/StickyHeadingSection/StickyHeadingSection';
 import CoreParagraph from './Core/CoreParagraph';
+import Collage from '@/components/Collage/Collage';
 
 // Component map — equivalent to Vue's dynamic component registry
 const componentMap: Record<string, ComponentType<any>> = {
   'sticky-heading-section': StickyHeadingSection,
   'core-paragraph': CoreParagraph,
+  'collage': Collage,
 };
 
 interface ModuleData {

@@ -1,0 +1,117 @@
+@use "sass:map";
+
+.collage {
+  &__main,
+  &__secondary {
+    grid-column: span 12 / span 12;
+  }
+
+  &__main {
+    position: relative;
+    padding-bottom: 124%;
+
+    @include breakpoint(medium) {
+      padding-bottom: 58%;
+    }
+  }
+
+  &__main + &__secondary {
+    margin-top: 30px;
+
+    @include breakpoint(medium) {
+      margin-top: 50px;
+    }
+  }
+
+  picture {
+    position: absolute;
+    width: 42%;
+    font-size: 0;
+    // opacity: 0;
+    transition: rotate 0.2s;
+
+    @include breakpoint(medium) {
+      width: 27%;
+    }
+
+    &:nth-child(1) {
+      top: 0; // 0 / 420
+      left: 37%; // 128 / 340
+      transform: rotate(-1deg);
+
+      @include breakpoint(medium) {
+        top: 20%; // 140 / 680
+        left: 6%; // 56 / 1180
+        transform: rotate(-6deg);
+      }
+    }
+
+    &:nth-child(2) {
+      top: 10%; // 43 / 420
+      left: 11%; // 38 / 340
+      transform: rotate(8deg);
+
+      @include breakpoint(medium) {
+        top: 2%; // 20 / 680
+        left: 16%; // 178 / 1180
+        transform: rotate(8deg);
+      }
+    }
+
+    &:nth-child(3) {
+      top: 22%; // 93 / 420
+      left: 46%; // 157 / 340
+      transform: rotate(7deg);
+
+      @include breakpoint(medium) {
+        top: 41%; // 280 / 680
+        left: 22%; // 255 / 1180
+        transform: rotate(-2deg);
+      }
+    }
+
+    &:nth-child(4) {
+      top: 37%; // 156 / 420
+      left: 5%; // 16 / 340
+      transform: rotate(-6deg);
+
+      @include breakpoint(medium) {
+        top: 0;
+        left: 44%; // 520 / 1180
+        transform: rotate(1deg);
+      }
+    }
+
+    &:nth-child(5) {
+      top: 52%; // 218 / 420
+      left: 49%; // 165 / 340
+      transform: rotate(-6deg);
+
+      @include breakpoint(medium) {
+        top: 46%; // 293 / 680
+        left: 48%; // 540 / 1180
+        transform: rotate(14deg);
+      }
+    }
+
+    &:nth-child(6) {
+      top: 64%; // 267 / 420
+      left: 18%; // 60 / 340
+      transform: rotate(5deg);
+
+      @include breakpoint(medium) {
+        top: 17%; // 114 / 680
+        left: 65%; // 764 / 1180
+        transform: rotate(-7deg);
+      }
+    }
+  }
+
+  &__caption {
+    text-align: center;
+
+    p {
+      @extend .paragraph-style-3;
+    }
+  }
+}
